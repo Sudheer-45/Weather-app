@@ -1,0 +1,255 @@
+
+html {
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Arial', sans-serif;
+  color: white 10s 20s ;
+  transition: background-color 0.3s ease;
+  margin-top: 30px;
+}
+
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 120vh;
+  object-fit: cover;
+  z-index: -1;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+}
+
+#weather-app {
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  max-width: 1200px;
+  transition: all 0.3s ease;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Current Weather Card */
+.current-weather-card {
+  color: white;
+  background-color: rgba(142, 36, 212, 0.2);
+  border: 1px solid rgba(175, 58, 253, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  animation: slideInUp 0.5s ease;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Forecast Cards */
+.forecast-card {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  animation: slideInUp 0.5s ease;
+  color: white;
+  width: 150px;
+  height: 260px;
+  padding: 10px;
+  text-align: center;
+  
+}
+
+/* Buttons */
+.btn-light {
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-dark {
+  background-color: #343a40;
+  border-color: #343a40;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Input Fields */
+#cityInput {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#searchButton {
+  background-color: #33dc85b6;
+  color: white;
+  border-color: #0d6efd;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#searchButton:hover {
+  background-color: rgba(209, 207, 207, 0.2);
+  border-color: #0a58ca;
+}
+
+/* Dark Mode Adjustments */
+.dark-mode #weather-app {
+  background-color: rgba(92, 87, 96, 0.127);
+  backdrop-filter: 1px;
+}
+
+.dark-mode .current-weather-card,
+.dark-mode .forecast-card {
+  background-color: rgba(94, 95, 104, 0.1);
+  border-color: white;
+}
+
+.dark-mode .btn-light {
+  background-color: white;
+  border-color: #343a40;
+  color: black;
+}
+
+.dark-mode .btn-dark {
+  background-color: black;
+  border-color: #f8f9fa;
+  color: white;
+}
+
+.dark-mode #cityInput {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(207, 197, 197, 0.2);
+  color: white;
+}
+
+.dark-mode #searchButton {
+  background-color: rgba(125, 121, 128, 0.808);
+  border-color:white;
+}
+
+.dark-mode
+
+/* light Mode Adjustments */
+.light-mode #weather-app {
+  background-color: rgba(222, 140, 46, 0.2);
+  backdrop-filter: 5px;
+}
+
+.light-mode .current-weather-card,
+.light-mode .forecast-card {
+  background-color: rgba(113, 35, 9, 0.1);
+  border-color: black;
+}
+
+.light-mode .btn-light {
+  background-color: white;
+  border-color: #343a40;
+  color: black;
+}
+
+.light-mode .btn-dark {
+  background-color: black;
+  border-color: #f8f9fa;
+  color: white;
+}
+
+.light-mode #cityInput {
+  background-color: rgba(160, 34, 34, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.light-mode #searchButton {
+  background-color: rgba(209, 143, 20, 0.767);
+  border-color: #02070f;
+  color: black;
+}
+
+/* style.css */
+
+.bg-freezing {
+  background-color: #c9d0d658; /* light icy blue */
+}
+
+.bg-cold {
+  background-color: #a4c9eb48; /* chilly blue */
+}
+
+.bg-mild {
+  background-color: #2b89d127; /* mild pink */
+}
+
+.bg-warm {
+  background-color: #c296614c; /* warm orange */
+}
+
+.bg-hot {
+  background-color: #c57a1f28; /* hot red */
+}
+
+@media (max-width: 768px) {
+  .background-video{
+    height: 3000px;
+  }
+  .forecast-card {
+    width: 40%;
+  }
+
+  #searchButton{
+    max-width: 100px;
+  }
+  #cityInput{
+    max-width: 100%;
+    margin-left: 0px;
+  } 
+  #weather-app {
+    padding: 15px;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .forecast-card {
+    width: 100%;
+  }
+
+  .btn-light,
+  .btn-dark {
+    width: 100%;
+  }
+
+  .temp_display {
+    font-size: 1.5rem;
+  }
+
+  #cityInput {
+    font-size: 1rem;
+  }
+}
+
+
